@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Smart Cell</title>
+  <link rel="stylesheet" href="./assets/css/estilo.css">
+</head>
+<body>
+  <header class="cabecalho-topo">
+    <img src="assets/images/logo-smartcell.png" alt="Logo Smart Cell" class="logotipo">
+  </header>
+
+  <main class="container-principal">
+    <section class="cartao-login">
+      <h1>Bem-Vindo À Smart Cell!</h1>
+
+      <form action="#" method="POST" class="formulario-login">
+        <div class="grupo-campo">
+          <input 
+            type="text" 
+            id="identificador_usuario" 
+            name="identificador_usuario" 
+            placeholder="Número de celular, nome do usuario ou gmail" 
+            required
+          >
+        </div>
+
+        <div class="grupo-campo">
+          <input 
+            type="password" 
+            id="senha_usuario" 
+            name="senha_usuario" 
+            placeholder="Senha" 
+            required
+          >
+          <a href="#" class="link-esqueceu-senha">Esqueceu a senha?</a>
+        </div>
+
+        <div class="grupo-botoes">
+          <button type="submit" class="botao botao-entrar">Entrar</button>
+          <a href="pages/cadastro.html" class="botao botao-criar-conta">Criar conta</a>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
