@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Cell - Cupons</title>
+  <link rel="stylesheet" href="../css/cupom.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="../../index.html"><img src="../images/image.png" alt="Smart Cell"></a>
+
+    <nav>
+      <a href="#">CATEGORIAS</a>
+      <a href="#">LOJA</a>
+      <a class="active" href="#">CUPONS</a>
+    </nav>
+
+    <input id="search" type="search" placeholder="Pesquisar cupom ou marca">
+
+    <a class="login" href="#">LOGIN</a>
+  </header>
+
+  <main>
+    <h1>Cupons Disponíveis</h1>
+    <p class="subtitle">Copie o código e use no carrinho.</p>
+
+    <div class="filters">
+      <button class="active" data-filter="todos">Todos</button>
+      <button data-filter="smartphones">Smartphones</button>
+      <button data-filter="primeira">Primeira compra</button>
+      <button data-filter="frete">Frete grátis</button>
+    </div>
+
+    <section class="grid">
+      <article class="card" data-category="primeira">
+        <span class="tag">Primeira compra</span>
+        <strong>R$ 150 OFF</strong>
+        <h2>Boas-vindas</h2>
+        <p>Pedidos acima de R$ 1.200.</p>
+        <div class="code"><b>SMART150</b><button>Copiar</button></div>
+      </article>
+
+      <article class="card" data-category="smartphones">
+        <span class="tag">Smartphones</span>
+        <strong>R$ 100 OFF</strong>
+        <h2>Desconto em celular</h2>
+        <p>Compras acima de R$ 800.</p>
+        <div class="code"><b>SMART100</b><button>Copiar</button></div>
+      </article>
+
+      <article class="card" data-category="frete">
+        <span class="tag">Frete grátis</span>
+        <strong>Frete grátis</strong>
+        <h2>Entrega sem custo</h2>
+        <p>Compras acima de R$ 100.</p>
+        <div class="code"><b>FRETEGRATIS</b><button>Copiar</button></div>
+      </article>
+
+      <article class="card" data-category="todos">
+        <span class="tag">Todos os cupons</span>
+        <strong>R$ 50 OFF</strong>
+        <h2>Desconto geral</h2>
+        <p>Compras acima de R$ 300.</p>
+        <div class="code"><b>TODOS50</b><button>Copiar</button></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="toast">Código copiado!</div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const buttons = document.querySelectorAll('.filters button');
+    const search = document.getElementById('search');
+
+    function filterCards() {
+      const type = document.querySelector('.filters .active').dataset.filter;
+      const text = search.value.toLowerCase();
+
+      cards.forEach(card => {
+        const matchesType = type === 'todos' || card.dataset.category === type;
+        const matchesText = card.textContent.toLowerCase().includes(text);
+        card.hidden = !(matchesType && matchesText);
+      });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        filterCards();
+      });
+    });
+
+    search.addEventListener('input', filterCards);
+
+    document.querySelectorAll('.code button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const code = button.previousElementSibling.textContent;
+
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch {
+          const field = document.createElement('textarea');
+          field.value = code;
+          document.body.append(field);
+          field.select();
+          document.execCommand('copy');
+          field.remove();
+        }
+
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    });
+  </script>
+</body>
+</html>
