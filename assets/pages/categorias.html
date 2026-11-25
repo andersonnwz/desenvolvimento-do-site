@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias - Smart Cell</title>
+
+    <link rel="stylesheet" href="categorias.css">
+    <script src="categorias.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="../../index.html">
+            ◈ SMART<br>CELL
+        </a>
+
+        <details>
+            <summary>CATEGORIAS</summary>
+            <nav>
+                <button data-cat="Todos">Todos</button>
+                <button data-cat="Básico">Básico</button>
+                <button data-cat="Médio">Médio</button>
+                <button data-cat="Premium">Premium</button>
+            </nav>
+        </details>
+
+        <button id="loja">LOJA</button>
+        <button id="cupons">CUPONS</button>
+
+        <input
+            id="busca"
+            type="search"
+            placeholder="PESQUISA"
+            aria-label="Pesquisar celulares"
+        >
+
+        <button id="avisos" aria-label="Notificações">🔔</button>
+
+        <button id="carrinho" aria-label="Carrinho">
+            🛒 <span id="total">0</span>
+        </button>
+
+        <a href="../../index.html">◉ LOGIN</a>
+    </header>
+
+    <main>
+        <h1 id="titulo">Todos os celulares</h1>
+
+        <p class="nota">
+            Encontre o celular ideal para você!
+        </p>
+
+        <section id="produtos" aria-label="Celulares"></section>
+
+        <p id="vazio" hidden>
+            Nenhum celular encontrado.
+        </p>
+    </main>
+
+    <dialog id="modal">
+        <h2 id="modalTitulo"></h2>
+
+        <div id="conteudo"></div>
+
+        <button id="fechar">Fechar</button>
+    </dialog>
+    
+
+</body>
+</html>
