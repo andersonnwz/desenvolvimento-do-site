@@ -17,7 +17,7 @@ header {
   display: flex;
   align-items: center;
   gap: 24px;
-  background: #4c66e4;
+  background: #0033C6;
 }
 
 .logo {
@@ -87,8 +87,8 @@ main {
 }
 
 .filters .active {
-  border-color: #4c66e4;
-  background: #4c66e4;
+  border-color: #0033C6;
+  background: #0033C6;
   color: white;
 }
 
@@ -117,7 +117,7 @@ main {
   padding: 5px 8px;
   border-radius: 6px;
   background: #dde3ff;
-  color: #3730a3;
+  color: #0033C6;
   font-size: 12px;
   font-weight: bold;
 }
