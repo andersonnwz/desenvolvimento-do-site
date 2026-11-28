@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <a class="logo" href="../../index.html"><img src="../images/image.png" alt="Smart Cell"></a>
+    <a class="logo" href="../../index.html"><img src="../images/images.jpg" alt="Smart Cell"></a>
 
     <nav>
       <a href="#">CATEGORIAS</a>
@@ -16,105 +16,53 @@
       <a class="active" href="#">CUPONS</a>
     </nav>
 
-    <input id="search" type="search" placeholder="Pesquisar cupom ou marca">
-
+    <input class="search" id="search" type="search" placeholder="Pesquisar cupom">
     <a class="login" href="#">LOGIN</a>
   </header>
 
   <main>
     <h1>Cupons Disponíveis</h1>
-    <p class="subtitle">Copie o código e use no carrinho.</p>
+    <p class="subtitle">Use o código no carrinho para aproveitar a oferta.</p>
 
-    <div class="filters">
-      <button class="active" data-filter="todos">Todos</button>
-      <button data-filter="smartphones">Smartphones</button>
-      <button data-filter="primeira">Primeira compra</button>
-      <button data-filter="frete">Frete grátis</button>
-    </div>
-
-    <section class="grid">
-      <article class="card" data-category="primeira">
+    <section >
+      <article class="card">
         <span class="tag">Primeira compra</span>
         <strong>R$ 150 OFF</strong>
         <h2>Boas-vindas</h2>
         <p>Pedidos acima de R$ 1.200.</p>
-        <div class="code"><b>SMART150</b><button>Copiar</button></div>
+        <div class="code"><b>SMART150</b><button type="button" onclick="navigator.clipboard.writeText('SMART150'); this.textContent='Copiado!'">Copiar</button></div>
       </article>
 
-      <article class="card" data-category="smartphones">
+      <article class="card">
         <span class="tag">Smartphones</span>
         <strong>R$ 100 OFF</strong>
         <h2>Desconto em celular</h2>
         <p>Compras acima de R$ 800.</p>
-        <div class="code"><b>SMART100</b><button>Copiar</button></div>
+        <div class="code"><b>SMART100</b><button type="button" onclick="navigator.clipboard.writeText('SMART100'); this.textContent='Copiado!'">Copiar</button></div>
       </article>
 
-      <article class="card" data-category="frete">
+      <article class="card">
         <span class="tag">Frete grátis</span>
         <strong>Frete grátis</strong>
         <h2>Entrega sem custo</h2>
         <p>Compras acima de R$ 100.</p>
-        <div class="code"><b>FRETEGRATIS</b><button>Copiar</button></div>
+        <div class="code"><b>FRETEGRATIS</b><button type="button" onclick="navigator.clipboard.writeText('FRETEGRATIS'); this.textContent='Copiado!'">Copiar</button></div>
       </article>
 
-      <article class="card" data-category="todos">
+      <article class="card">
         <span class="tag">Todos os cupons</span>
         <strong>R$ 50 OFF</strong>
         <h2>Desconto geral</h2>
         <p>Compras acima de R$ 300.</p>
-        <div class="code"><b>TODOS50</b><button>Copiar</button></div>
+        <div class="code"><b>TODOS50</b><button type="button" onclick="navigator.clipboard.writeText('TODOS50'); this.textContent='Copiado!'">Copiar</button></div>
       </article>
     </section>
   </main>
 
-  <div id="toast">Código copiado!</div>
-
   <script>
-    const cards = document.querySelectorAll('.card');
-    const buttons = document.querySelectorAll('.filters button');
-    const search = document.getElementById('search');
-
-    function filterCards() {
-      const type = document.querySelector('.filters .active').dataset.filter;
-      const text = search.value.toLowerCase();
-
-      cards.forEach(card => {
-        const matchesType = type === 'todos' || card.dataset.category === type;
-        const matchesText = card.textContent.toLowerCase().includes(text);
-        card.hidden = !(matchesType && matchesText);
-      });
-    }
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(item => item.classList.remove('active'));
-        button.classList.add('active');
-        filterCards();
-      });
-    });
-
-    search.addEventListener('input', filterCards);
-
-    document.querySelectorAll('.code button').forEach(button => {
-      button.addEventListener('click', async () => {
-        const code = button.previousElementSibling.textContent;
-
-        try {
-          await navigator.clipboard.writeText(code);
-        } catch {
-          const field = document.createElement('textarea');
-          field.value = code;
-          document.body.append(field);
-          field.select();
-          document.execCommand('copy');
-          field.remove();
-        }
-
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      });
-    });
+    search.oninput = () => document.querySelectorAll('.card').forEach(c => 
+      c.hidden = !c.textContent.toLowerCase().includes(search.value.toLowerCase())
+    );
   </script>
 </body>
 </html>
