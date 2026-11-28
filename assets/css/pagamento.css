@@ -1,0 +1,461 @@
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f3f5f9;
+  color: #1e293b;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* =========================================
+   2. CABEÇALHO
+   ========================================= */
+.cabecalho {
+  background-color: #3f5ec9;
+  padding: 12px 24px;
+}
+
+.cabecalho-conteudo {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cabecalho-esquerda,
+.menu-navegacao,
+.cabecalho-icones {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-link,
+.menu-navegacao a,
+.cabecalho-icones a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.icone-login {
+  flex-direction: column;
+  font-size: 9px;
+}
+
+.barra-pesquisa {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  width: 320px;
+}
+
+.barra-pesquisa input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+}
+
+.barra-pesquisa button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* =========================================
+   3. ESTRUTURA PRINCIPAL DO CHECKOUT
+   ========================================= */
+.container-checkout {
+  max-width: 1140px;
+  margin: 32px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.card-checkout,
+.card-qrcode {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.cabecalho-card {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.cabecalho-resumo-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cabecalho-card h1,
+.cabecalho-card h2 {
+  font-size: 18px;
+}
+
+.cabecalho-card p,
+.subtexto-metodo,
+.produto-specs,
+.selo-seguranca,
+.bandeiras-secao p {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.link-alterar {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3a82f6;
+  text-decoration: none;
+}
+
+/* =========================================
+   4. OPÇÕES DE PAGAMENTO (ESQUERDA)
+   ========================================= */
+.lista-opcoes,
+.form-cartao,
+.valores-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcao-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.opcao-card.selecionada {
+  border-color: #3a82f6;
+  background-color: #eff6ff;
+}
+
+.opcao-topo,
+.produto-box,
+.copia-cola-linha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.opcao-topo input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #16a34a;
+}
+
+.icone-svg {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pix-cor {
+  background-color: #ccfbf1;
+  color: #0d9488;
+}
+
+.cartao-cor {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.opcao-info,
+.produto-detalhes,
+.copia-cola-linha input {
+  flex: 1;
+}
+
+.texto-metodo {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.tag-destaque {
+  background-color: #dcfce7;
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.painel-extra {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #cbd5e1;
+  font-size: 13px;
+}
+
+.campo-grupo label,
+.copia-cola-box label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.form-cartao input,
+.form-cartao select,
+.painel-extra input,
+.copia-cola-linha input {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.linha-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* =========================================
+   5. PRODUTOS E RESUMO (DIREITA)
+   ========================================= */
+.lista-produtos-scroll {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.produto-box {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+.produto-box img {
+  width: 56px;
+  height: 68px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.produto-nome {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.produto-rodape,
+.linha-valor,
+.linha-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.produto-preco,
+.qtd-numero {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.controle-qtd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-qtd {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carrinho-vazio-aviso {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.valores-box {
+  padding: 14px 0;
+  font-size: 14px;
+}
+
+.texto-gratis {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.linha-total {
+  background-color: #f1f5f9;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.linha-total strong {
+  font-size: 20px;
+}
+
+.texto-erro {
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: bold;
+  min-height: 18px;
+  margin-bottom: 6px;
+}
+
+.btn-principal,
+.copia-cola-linha button {
+  background-color: #3a82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-principal {
+  width: 100%;
+}
+
+.btn-principal:hover,
+.copia-cola-linha button:hover {
+  background-color: #2563eb;
+}
+
+.selo-seguranca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.bandeiras-secao {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.bandeiras-cartao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.badge-bandeira {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #f8fafc;
+}
+
+/* =========================================
+   6. TELA DO QR CODE
+   ========================================= */
+.container-qrcode {
+  max-width: 500px;
+  margin: 36px auto;
+  padding: 0 20px;
+}
+
+.card-qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.faixa-titulo-qr {
+  background-color: #5b7cfa;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.faixa-titulo-qr h2 {
+  font-size: 19px;
+}
+
+.box-qrcode {
+  padding: 12px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+}
+
+.imagem-qr {
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
+}
+
+.copia-cola-box {
+  width: 100%;
+  text-align: left;
+}
+
+.instrucao-qr {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.btn-secundario {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13px;
+  cursor: pointer;
+}
