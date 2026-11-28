@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #5b7cfa;
+  background-color: #0033C6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ body {
 }
 
 .grupo-campo input:focus {
-  border-color: #2b90f5;
+  border-color: #0033C6;
 }
 
 .link-esqueceu-senha {

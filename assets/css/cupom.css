@@ -23,6 +23,12 @@ header {
   background: #0033C6;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logo img {
   display: block;
   height: 58px;
@@ -65,9 +71,10 @@ main {
   font-size: 14px;
 }
 
-.search:focus {
-  outline: 2px solid #4c66e4;
-  outline-offset: 2px;
+.filters .active {
+  border-color: #0033C6;
+  background: #0033C6;
+  color: white;
 }
 
 
@@ -92,7 +99,7 @@ main {
   padding: 5px 8px;
   border-radius: 6px;
   background: #dde3ff;
-  color: #3730a3;
+  color: #0033C6;
   font-size: 12px;
   font-weight: bold;
 }
